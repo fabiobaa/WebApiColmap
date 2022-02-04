@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBaseStoreContainer" CdmEntityContainer="DataBaseEntities">
+    <EntitySetMapping Name="Sarh_tblFechas">
+      <EntityTypeMapping TypeName="DataBase.Sarh_tblFechas">
+        <MappingFragment StoreEntitySet="Sarh_tblFechas">
+          <ScalarProperty Name="fa_IdFecha_pk" ColumnName="fa_IdFecha_pk" />
+          <ScalarProperty Name="fa_Fecha" ColumnName="fa_Fecha" />
+          <ScalarProperty Name="fa_Dia" ColumnName="fa_Dia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

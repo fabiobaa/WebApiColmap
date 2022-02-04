@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBase1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="map_tblDicDepartamentos">
+    <Key>
+      <PropertyRef Name="dide_id_pk" />
+    </Key>
+    <Property Name="dide_id_pk" Type="Int32" Nullable="false" />
+    <Property Name="dide_nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dide_estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="map_tblDicTamanos">
+    <Key>
+      <PropertyRef Name="ta_id_pk" />
+    </Key>
+    <Property Name="ta_id_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ta_tamano" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ta_estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DataBaseEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="map_tblDicDepartamentos" EntityType="Self.map_tblDicDepartamentos" />
+    <EntitySet Name="map_tblDicTamanos" EntityType="Self.map_tblDicTamanos" />
+  </EntityContainer>
+</Schema>

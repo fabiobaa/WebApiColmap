@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiColmap", "WebApiTemplate\WebApiColmap.csproj", "{EEE4B4CB-3CAA-4915-A0CF-45AB2E3729F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEE4B4CB-3CAA-4915-A0CF-45AB2E3729F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE4B4CB-3CAA-4915-A0CF-45AB2E3729F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE4B4CB-3CAA-4915-A0CF-45AB2E3729F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE4B4CB-3CAA-4915-A0CF-45AB2E3729F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C7CDDCC-00FE-49BE-93FC-F02D7EB4A64E}
+	EndGlobalSection
+EndGlobal

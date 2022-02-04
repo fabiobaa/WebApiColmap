@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBase1StoreContainer" CdmEntityContainer="DataBaseEntities1">
+    <EntitySetMapping Name="map_tblDicDepartamentos">
+      <EntityTypeMapping TypeName="DataBase1.map_tblDicDepartamentos">
+        <MappingFragment StoreEntitySet="map_tblDicDepartamentos">
+          <ScalarProperty Name="dide_id_pk" ColumnName="dide_id_pk" />
+          <ScalarProperty Name="dide_nombre" ColumnName="dide_nombre" />
+          <ScalarProperty Name="dide_estado" ColumnName="dide_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_tblDicTamanos">
+      <EntityTypeMapping TypeName="DataBase1.map_tblDicTamanos">
+        <MappingFragment StoreEntitySet="map_tblDicTamanos">
+          <ScalarProperty Name="ta_id_pk" ColumnName="ta_id_pk" />
+          <ScalarProperty Name="ta_tamano" ColumnName="ta_tamano" />
+          <ScalarProperty Name="ta_estado" ColumnName="ta_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_tblCoordinates">
+      <EntityTypeMapping TypeName="DataBase1.map_tblCoordinates">
+        <MappingFragment StoreEntitySet="map_tblCoordinates">
+          <ScalarProperty Name="co_latitude" ColumnName="co_latitude" />
+          <ScalarProperty Name="co_longitude" ColumnName="co_longitude" />
+          <ScalarProperty Name="co_idCoordinate_pk" ColumnName="co_idCoordinate_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_tblFeatures">
+      <EntityTypeMapping TypeName="DataBase1.map_tblFeatures">
+        <MappingFragment StoreEntitySet="map_tblFeatures">
+          <ScalarProperty Name="fo_type" ColumnName="fo_type" />
+          <ScalarProperty Name="fo_idGeometry_fk" ColumnName="fo_idGeometry_fk" />
+          <ScalarProperty Name="fo_idProperties_fk" ColumnName="fo_idProperties_fk" />
+          <ScalarProperty Name="fo_idFeature_pk" ColumnName="fo_idFeature_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_tblGeometry">
+      <EntityTypeMapping TypeName="DataBase1.map_tblGeometry">
+        <MappingFragment StoreEntitySet="map_tblGeometry">
+          <ScalarProperty Name="ge_type" ColumnName="ge_type" />
+          <ScalarProperty Name="ge_idCoordinate_fk" ColumnName="ge_idCoordinate_fk" />
+          <ScalarProperty Name="ge_idGeometry_pk" ColumnName="ge_idGeometry_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_tblProperties">
+      <EntityTypeMapping TypeName="DataBase1.map_tblProperties">
+        <MappingFragment StoreEntitySet="map_tblProperties">
+          <ScalarProperty Name="po_departamento" ColumnName="po_departamento" />
+          <ScalarProperty Name="po_bdh" ColumnName="po_bdh" />
+          <ScalarProperty Name="po_idProperties_pk" ColumnName="po_idProperties_pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

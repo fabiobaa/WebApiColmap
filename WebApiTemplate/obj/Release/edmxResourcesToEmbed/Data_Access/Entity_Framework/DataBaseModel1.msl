@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBase1StoreContainer" CdmEntityContainer="DataBaseEntities1">
+    <EntitySetMapping Name="map_tblDicDepartamentos">
+      <EntityTypeMapping TypeName="DataBase1.map_tblDicDepartamentos">
+        <MappingFragment StoreEntitySet="map_tblDicDepartamentos">
+          <ScalarProperty Name="dide_id_pk" ColumnName="dide_id_pk" />
+          <ScalarProperty Name="dide_nombre" ColumnName="dide_nombre" />
+          <ScalarProperty Name="dide_estado" ColumnName="dide_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="map_tblDicTamanos">
+      <EntityTypeMapping TypeName="DataBase1.map_tblDicTamanos">
+        <MappingFragment StoreEntitySet="map_tblDicTamanos">
+          <ScalarProperty Name="ta_id_pk" ColumnName="ta_id_pk" />
+          <ScalarProperty Name="ta_tamano" ColumnName="ta_tamano" />
+          <ScalarProperty Name="ta_estado" ColumnName="ta_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

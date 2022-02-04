@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBase1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="map_tblDicDepartamentos">
+    <Key>
+      <PropertyRef Name="dide_id_pk" />
+    </Key>
+    <Property Name="dide_id_pk" Type="Int32" Nullable="false" />
+    <Property Name="dide_nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dide_estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="map_tblDicTamanos">
+    <Key>
+      <PropertyRef Name="ta_id_pk" />
+    </Key>
+    <Property Name="ta_id_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ta_tamano" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ta_estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DataBaseEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="map_tblDicDepartamentos" EntityType="Self.map_tblDicDepartamentos" />
+    <EntitySet Name="map_tblDicTamanos" EntityType="Self.map_tblDicTamanos" />
+    <EntitySet Name="map_tblCoordinates" EntityType="DataBase1.map_tblCoordinates" />
+    <EntitySet Name="map_tblFeatures" EntityType="DataBase1.map_tblFeatures" />
+    <EntitySet Name="map_tblGeometry" EntityType="DataBase1.map_tblGeometry" />
+    <EntitySet Name="map_tblProperties" EntityType="DataBase1.map_tblProperties" />
+    <AssociationSet Name="FK_map_tblGeometry_map_tblCoordinates" Association="DataBase1.FK_map_tblGeometry_map_tblCoordinates">
+      <End Role="map_tblCoordinates" EntitySet="map_tblCoordinates" />
+      <End Role="map_tblGeometry" EntitySet="map_tblGeometry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_map_tblFeatures_map_tblGeometry" Association="DataBase1.FK_map_tblFeatures_map_tblGeometry">
+      <End Role="map_tblGeometry" EntitySet="map_tblGeometry" />
+      <End Role="map_tblFeatures" EntitySet="map_tblFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_map_tblFeatures_map_tblProperties" Association="DataBase1.FK_map_tblFeatures_map_tblProperties">
+      <End Role="map_tblProperties" EntitySet="map_tblProperties" />
+      <End Role="map_tblFeatures" EntitySet="map_tblFeatures" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="map_tblCoordinates">
+    <Key>
+      <PropertyRef Name="co_idCoordinate_pk" />
+    </Key>
+    <Property Name="co_idCoordinate_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="co_longitude" Type="Single" Nullable="false" />
+    <Property Name="co_latitude" Type="Single" Nullable="false" />
+    <NavigationProperty Name="map_tblGeometry" Relationship="DataBase1.FK_map_tblGeometry_map_tblCoordinates" FromRole="map_tblCoordinates" ToRole="map_tblGeometry" />
+  </EntityType>
+  <EntityType Name="map_tblFeatures">
+    <Key>
+      <PropertyRef Name="fo_idFeature_pk" />
+    </Key>
+    <Property Name="fo_idFeature_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fo_idProperties_fk" Type="Int32" Nullable="false" />
+    <Property Name="fo_idGeometry_fk" Type="Int32" Nullable="false" />
+    <Property Name="fo_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="map_tblGeometry" Relationship="DataBase1.FK_map_tblFeatures_map_tblGeometry" FromRole="map_tblFeatures" ToRole="map_tblGeometry" />
+    <NavigationProperty Name="map_tblProperties" Relationship="DataBase1.FK_map_tblFeatures_map_tblProperties" FromRole="map_tblFeatures" ToRole="map_tblProperties" />
+  </EntityType>
+  <EntityType Name="map_tblGeometry">
+    <Key>
+      <PropertyRef Name="ge_idGeometry_pk" />
+    </Key>
+    <Property Name="ge_idGeometry_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ge_idCoordinate_fk" Type="Int32" Nullable="false" />
+    <Property Name="ge_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="map_tblCoordinates" Relationship="DataBase1.FK_map_tblGeometry_map_tblCoordinates" FromRole="map_tblGeometry" ToRole="map_tblCoordinates" />
+    <NavigationProperty Name="map_tblFeatures" Relationship="DataBase1.FK_map_tblFeatures_map_tblGeometry" FromRole="map_tblGeometry" ToRole="map_tblFeatures" />
+  </EntityType>
+  <EntityType Name="map_tblProperties">
+    <Key>
+      <PropertyRef Name="po_idProperties_pk" />
+    </Key>
+    <Property Name="po_idProperties_pk" Type="Int32" Nullable="false" />
+    <Property Name="po_bdh" Type="Int32" Nullable="false" />
+    <Property Name="po_departamento" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="map_tblFeatures" Relationship="DataBase1.FK_map_tblFeatures_map_tblProperties" FromRole="map_tblProperties" ToRole="map_tblFeatures" />
+  </EntityType>
+  <Association Name="FK_map_tblGeometry_map_tblCoordinates">
+    <End Type="DataBase1.map_tblCoordinates" Role="map_tblCoordinates" Multiplicity="1" />
+    <End Type="DataBase1.map_tblGeometry" Role="map_tblGeometry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="map_tblCoordinates">
+        <PropertyRef Name="co_idCoordinate_pk" />
+      </Principal>
+      <Dependent Role="map_tblGeometry">
+        <PropertyRef Name="ge_idCoordinate_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_map_tblFeatures_map_tblGeometry">
+    <End Type="DataBase1.map_tblGeometry" Role="map_tblGeometry" Multiplicity="1" />
+    <End Type="DataBase1.map_tblFeatures" Role="map_tblFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="map_tblGeometry">
+        <PropertyRef Name="ge_idGeometry_pk" />
+      </Principal>
+      <Dependent Role="map_tblFeatures">
+        <PropertyRef Name="fo_idGeometry_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_map_tblFeatures_map_tblProperties">
+    <End Type="DataBase1.map_tblProperties" Role="map_tblProperties" Multiplicity="1" />
+    <End Type="DataBase1.map_tblFeatures" Role="map_tblFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="map_tblProperties">
+        <PropertyRef Name="po_idProperties_pk" />
+      </Principal>
+      <Dependent Role="map_tblFeatures">
+        <PropertyRef Name="fo_idProperties_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
